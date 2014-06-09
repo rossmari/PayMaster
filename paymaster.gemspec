@@ -6,10 +6,10 @@ require 'paymaster/version'
 Gem::Specification.new do |spec|
   spec.name          = "paymaster"
   spec.version       = Paymaster::VERSION
-  spec.authors       = ["roman"]
-  spec.email         = ["buzhenko@unitmedia.ru"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
+  spec.authors       = ["Roman Bujenko"]
+  spec.email         = ["roman-bujenko@yandex.ru"]
+  spec.summary       = %q{Paymaster wrapper to fill you life easy ans smooth}
+  spec.description   = %q{Second gem for Russian payment systems}
   spec.homepage      = ""
   spec.license       = "MIT"
 
