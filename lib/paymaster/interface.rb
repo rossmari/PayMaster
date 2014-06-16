@@ -34,15 +34,15 @@ class Paymaster::Interface
     'https://paymaster.ru/Payment/Init'
   end
 
-  def self.success(params, controller)
-    success_implementation(params[:order_id], controller)
+  def self.success(params)
+    success_implementation(params)
   end
 
-  def self.fail(params, controller)
-    fail_implementation(params[:order_id] , controller)
+  def self.fail(params)
+    fail_implementation(params)
   end
 
-  def self.callback(params, controller)
+  def self.callback(params)
     if check_response_signature(params)
       success_callback_implementation(params)
     else
