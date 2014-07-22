@@ -73,12 +73,12 @@ class Paymaster::Interface
   end
 
   # создание урла для оплаты
-  def init_payment_url(order_id, amount)
-    url_options = init_payment_options(order_id, amount)
+  def init_payment_url(order_id, amount, options = {})
+    url_options = init_payment_options(order_id, amount, options)
     "#{base_url}?" + url_options
   end
 
-  def init_payment_options(order_id, amount)
+  def init_payment_options(order_id, amount, order_options = {})
     options = {
 
         LMI_MERCHANT_ID:          @options[:merchant_id],
@@ -91,6 +91,10 @@ class Paymaster::Interface
     # if test mode On
     if @options[:LMI_SIM_MODE]
       options[:LMI_SIM_MODE] = @options[:LMI_SIM_MODE]
+    end
+
+    if order_options[:LMI_PAYMENT_METHOD]
+      options[:LMI_PAYMENT_METHOD] = order_options[:LMI_PAYMENT_METHOD]
     end
 
     query_string(options)
